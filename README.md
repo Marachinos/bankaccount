@@ -10,9 +10,9 @@ Jag började med att göra 3 olika klasser.
 
 
 
+Sen gjorde jag inloggningen, med felmeddelande om det är fel kod. 
 
+vid rätt kod en hälsningsfras till kontoinnehavaren.
 
-
-
-
+Sen la jag in valen.
 
