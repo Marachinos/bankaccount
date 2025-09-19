@@ -57,13 +57,26 @@
                 var account = new BankAccount();
                 var customer = new Customer(person, account);
 
-            Console.WriteLine("Välkommen!\n Fyll i din 4-siffriga kod: ");
+                //Inloggningen startar här/Login is started here
+            Console.WriteLine("Välkommen till bankkonto.se!\nFyll i din 4-siffriga kod: ");
+                while (true)
+                { 
+                Console.Write("PIN: ");
+                    var pinInput = Console.ReadLine();
+                    if (customer.Authenticate(pinInput))
+                    {
+                        Console.WriteLine($"Inloggning lyckades!\nVälkommen {customer.Person.Name}!");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Felaktig kod, försök igen.");
+                    }
+
+                }
             }
 
-
-
         }
-
 
     }
 }
