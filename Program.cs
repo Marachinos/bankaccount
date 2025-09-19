@@ -30,16 +30,15 @@
                         balance -= amount;
                 }
         }
-        static void Main(string[] args)
+        class Customer //Customer: kopplar en person till ett bankkonto/links a person to a bank account
         {
-            Person person = new Person("Alice", "123456-7890");
-            BankAccount account = new BankAccount();
-            account.Deposit(1000);
-            Console.WriteLine($"Balance after deposit: {account.Balance}");
-            account.Withdraw(500);
-            Console.WriteLine($"Balance after withdrawal: {account.Balance}");
-            account.Withdraw(600); // This should not be allowed
-            Console.WriteLine($"Balance after attempted over-withdrawal: {account.Balance}");
+            public Person Person { get; }
+            public BankAccount Account { get; }
+            public Customer(Person person, BankAccount account)
+            {
+                Person = person;
+                Account = account;
+            }
         }
 
     }
