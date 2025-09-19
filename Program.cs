@@ -18,7 +18,7 @@
                     balance -= amount;
             }
 
-            class Person //Person: inkapslar namn och personnummer
+            class Person //Person: inkapslar namn och personnummer/encapsulates name and social security number
             {
                 public string Name { get; }
                 public string PersonalNumber { get; }
