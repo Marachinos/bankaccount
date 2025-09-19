@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        class BankAccount
+        class BankAccount //BankAccount: inkapslar saldot/encapsulates the balance
         {
             private decimal balance;
             public decimal Balance => balance;
@@ -18,6 +18,16 @@
                     balance -= amount;
             }
 
+            class Person //Person: inkapslar namn och personnummer
+            {
+                public string Name { get; }
+                public string PersonalNumber { get; }
+                public Person(string name, string personalNumber)
+                {
+                    Name = name;
+                    PersonalNumber = personalNumber;
+                }
+            }
 
         }
     }
