@@ -85,15 +85,23 @@
             }
             static void DisplayMenu (Customer customer) //Displays a menu for the user to interact with their bank account
             {
-                while (true)
-                { 
-                Console.WriteLine("\nVälj ett av följande alternativ:");
+                void PrintMenu() //The menu shows 1 time and can be shown again by pressing M
+                {
+                    Console.WriteLine("\nVälj ett av följande alternativ:");
                     Console.WriteLine("1. Sätt in pengar");
                     Console.WriteLine("2. Ta ut pengar");
                     Console.WriteLine("3. Visa saldo");
                     Console.WriteLine("4. Avsluta");
+                    Console.WriteLine("M. Visa menyn igen");
+                }
+
+                PrintMenu();
+
+                while (true)
+                {
                     Console.Write("Ditt val: ");
                     var choice = Console.ReadLine();
+
                     switch (choice) //Diffrent options for the custumer to choose from
                     {
                         case "1":
@@ -114,7 +122,10 @@
                             Console.WriteLine("Tack för att du använde bankkonto.se! Välkommen tillbaka!");
                             Console.ResetColor();
                             return;
-                         default:
+                        case "M":
+                            PrintMenu(); //Show the meny again
+                            break;
+                        default:
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Ogiltigt val, försök igen.");
                             Console.ResetColor();
@@ -130,7 +141,7 @@
                 {
                     account.Deposit(amount);
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"Insättning lyckades! Nytt saldo: {account.Balance} sek");
+                    Console.WriteLine($"Insättning lyckades! Nytt saldo: {account.Balance} SEK");
                     Console.ResetColor();
                 }
                 else
