@@ -139,10 +139,11 @@
             static void HandleWithDraw(BankAccount account) //Handles withdrawals from the bank account
             {
                 Console.WriteLine("Ange belopp att ta ut: ");
-                var input = Console.ReadLine();
-                if (decimal.TryParse(Console.ReadLine(), out decimal amount) && amount > 0)
+                if 
+                    (decimal.TryParse(Console.ReadLine(), out decimal amount) && amount > 0)
                 {
-                    if (amount <= account.Balance)
+                    if 
+                        (amount <= account.Balance)
                     {
                         account.Withdraw(amount);
                         Console.WriteLine($"Uttaget lyckades. Nytt saldo: {account.Balance} SEK");
