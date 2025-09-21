@@ -105,10 +105,14 @@
                                 HandleWithDraw(customer.Account);
                             break;
                          case "3":
-                            Console.WriteLine($"Ditt saldo är: {customer.Account.Balance:C}");
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine($"Ditt saldo är: {customer.Account.Balance:C} SEK");
+                            Console.ResetColor();
                             break;  
                          case "4":
+                            Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.WriteLine("Tack för att du använde bankkonto.se! Välkommen tillbaka!");
+                            Console.ResetColor();
                             return;
                          default:
                             Console.ForegroundColor = ConsoleColor.Red;
@@ -120,7 +124,7 @@
             }
                 static void HandleDeposit(BankAccount account) //Handles deposits to the bank account
             {
-                Console.WriteLine("Ange belopp att sätta in: ");
+                Console.WriteLine();
                 var input = Console.ReadLine();
                 if (decimal.TryParse(input, out var amount) && amount > 0)
                 {
@@ -138,7 +142,7 @@
             }
             static void HandleWithDraw(BankAccount account) //Handles withdrawals from the bank account
             {
-                Console.WriteLine("Ange belopp att ta ut: ");
+                Console.WriteLine();
                 if 
                     (decimal.TryParse(Console.ReadLine(), out decimal amount) && amount > 0)
                 {
@@ -146,17 +150,21 @@
                         (amount <= account.Balance)
                     {
                         account.Withdraw(amount);
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine($"Uttaget lyckades. Nytt saldo: {account.Balance} SEK");
+                        Console.ResetColor();
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Du kan inte ta ut mer än vad som finns på kontot!");
+                        Console.WriteLine("Du kan inte ta ut mer än vad som finns på kontot!");
+                        Console.ResetColor();
                     }
                 }
                 else
                 {
-                   Console.WriteLine("Ogiltigt belopp! Försök igen!");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Ogiltigt belopp! Försök igen!");
                     Console.ResetColor();
                 }
             }
