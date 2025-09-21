@@ -19,9 +19,21 @@
                     balance -= amount;
             }
         }
+        class Person //class representing a customer,
+                     //with a name and security number (personal number)
+
+        {
+            public string Name { get; }
+            public string PersonalNumber { get; }
+
+            public Person(string name, string personalNumber)
+            {
+                Name = name;
+                PersonalNumber = personalNumber;
+            }
 
 
-        static void Main(string[] args)
+            static void Main(string[] args)
         {
             
         }
