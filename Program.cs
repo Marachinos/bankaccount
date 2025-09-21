@@ -102,7 +102,7 @@
                             break;
                          case "2":
                             Console.Write("Ange belopp att ta ut: ");
-                                HandleWithdraw(customer.Account);
+                                HandleWithDraw(customer.Account);
                             break;
                          case "3":
                             Console.WriteLine($"Ditt saldo är: {customer.Account.Balance:C}");
@@ -110,10 +110,53 @@
                          case "4":
                             Console.WriteLine("Tack för att du använde bankkonto.se! Välkommen tillbaka!");
                             return;
-
+                         default:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Ogiltigt val, försök igen.");
+                            Console.ResetColor();
+                            break;
                     }
-
-
+                }
+            }
+                static void HandleDeposit(BankAccount account) //Handles deposits to the bank account
+            {
+                Console.WriteLine("Ange belopp att sätta in: ");
+                var input = Console.ReadLine();
+                if (decimal.TryParse(input, out var amount) && amount > 0)
+                {
+                    account.Deposit(amount);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Insättning lyckades! Nytt saldo: {account.Balance} sek");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Ogiltigt belopp, försök igen.");
+                    Console.ResetColor();
+                }
+            }
+            static void HandleWithDraw(BankAccount account) //Handles withdrawals from the bank account
+            {
+                Console.WriteLine("Ange belopp att ta ut: ");
+                var input = Console.ReadLine();
+                if (decimal.TryParse(Console.ReadLine(), out decimal amount) && amount > 0)
+                {
+                    if (amount <= account.Balance)
+                    {
+                        account.Withdraw(amount);
+                        Console.WriteLine($"Uttaget lyckades. Nytt saldo: {account.Balance} SEK");
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Du kan inte ta ut mer än vad som finns på kontot!");
+                    }
+                }
+                else
+                {
+                   Console.WriteLine("Ogiltigt belopp! Försök igen!");
+                    Console.ResetColor();
                 }
             }
 
