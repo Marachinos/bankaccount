@@ -23,7 +23,6 @@
         }
         class Person //class representing a customer,
                      //with a name and security number (personal number)
-
         {
             public string Name { get; }
             public string PersonalNumber { get; }
@@ -62,7 +61,43 @@
                 var account = new BankAccount();
                 var customer = new Customer(person, account);
                 //The customer is prompted to enter their pin code
-                Console.WriteLine($"Välkommen till bankkonto.se!\n Fyll i din 4-siffriga kod: ");
+                Console.WriteLine($"Välkommen till bankkonto.se! \nFyll i din 4-siffriga kod: ");
+                while (true)
+                {
+                    Console.Write("PIN: ");
+                    var pin = Console.ReadLine();
+                    if (customer.Authenticate(pin))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine($"Inloggning lyckades! \nVälkommen {customer.Person.Name}!");
+                        Console.ResetColor();
+                        DisplayMenu(customer); //Menu is displayed if pin is correct
+                        break;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Felaktig kod, försök igen: ");
+                        Console.ResetColor();
+                    }
+
+                }
             }
+            static void DisplayMenu (Customer customer) //Displays a menu for the user to interact with their bank account
+            {
+                while (true)
+                { 
+                Console.WriteLine("\nVälj ett av följande alternativ:");
+                    Console.WriteLine("1. Sätt in pengar");
+                    Console.WriteLine("2. Ta ut pengar");
+                    Console.WriteLine("3. Visa saldo");
+                    Console.WriteLine("4. Avsluta");
+                    Console.Write("Ditt val: ");
+                    var choice = Console.ReadLine();
+                 
+                }
+            }
+
         }
     }
+}
