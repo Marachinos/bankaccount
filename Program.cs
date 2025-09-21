@@ -1,6 +1,8 @@
 ﻿namespace bankaccount
 {
-    class Program
+    using System;
+
+    internal class Program
     {
         class BankAccount //class representing a bank account,
                           //with methods to deposit and withdraw money
@@ -31,11 +33,36 @@
                 Name = name;
                 PersonalNumber = personalNumber;
             }
-
-
-            static void Main(string[] args)
+        }
+        class Customer //Links a person to a bank account
         {
-            
+            private const string HardcodedPin = "1234";
+            public Person Person { get; }
+            public BankAccount Account { get; }
+
+            public Customer(Person person, BankAccount account)
+            {
+                Person = person;
+                Account = account;
+            }
+
+            //Returns true/false depending on whether the pin matches or not
+            public bool Authenticate(string pin)
+            {
+                if (pin == null) return false;
+                return pin.Trim() == HardcodedPin;
+            }
+        }
+        class ProgramMain //
+        {
+            static void Main(string[] args)
+            {
+                //Account and person created
+                var person = new Person("Ziwa", "20001018-1234");
+                var account = new BankAccount();
+                var customer = new Customer(person, account);
+                //The customer is prompted to enter their pin code
+                Console.WriteLine($"Välkommen till bankkonto.se!\n Fyll i din 4-siffriga kod: ");
+            }
         }
     }
-}
