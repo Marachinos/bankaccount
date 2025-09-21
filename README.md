@@ -17,6 +17,8 @@
    Då får kunden göra ett nytt val.
    Väljer kunden 3 Visa belopp visas belopp som finns på kontot med decimaler (ören).
    Väljer kunden 4 så avslutas sessionen och ett hej då meddelande kommer upp.
+10. Gjorde en ändring så att menyn bara visas 1 ggn. Lärde mig att menyn då ska ligga utanför loopen.
+11. La även till färg på vissa texter. Som tex Rött vid fel och Grönt vid rätt.
 
 
 
