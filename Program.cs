@@ -94,7 +94,26 @@
                     Console.WriteLine("4. Avsluta");
                     Console.Write("Ditt val: ");
                     var choice = Console.ReadLine();
-                 
+                    switch (choice) //Diffrent options for the custumer to choose from
+                    {
+                        case "1":
+                            Console.Write("Ange belopp att sätta in: ");
+                                HandleDeposit(customer.Account);
+                            break;
+                         case "2":
+                            Console.Write("Ange belopp att ta ut: ");
+                                HandleWithdraw(customer.Account);
+                            break;
+                         case "3":
+                            Console.WriteLine($"Ditt saldo är: {customer.Account.Balance:C}");
+                            break;  
+                         case "4":
+                            Console.WriteLine("Tack för att du använde bankkonto.se! Välkommen tillbaka!");
+                            return;
+
+                    }
+
+
                 }
             }
 
