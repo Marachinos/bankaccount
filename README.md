@@ -3,28 +3,25 @@
 
 
 1. Började med att använda ditt "skal" till en klass för att göra ett konto med balans.
-2. Jag gjorde en klass för kunden/personen. 
+2. Jag gjorde en klass för kunden/personen.
 3. Gjorde en klass för att kunna länka kunden till kontot o gav kontot en kod
 4. gjorde en bool (sant eller falskt) för att ge ett fel- eller rätt meddelande om koden är fel eller rätt.
 5. Matade sedan in kundens namn och personnummer.
 6. Gjorde ett välkomstmeddelande och ber kunden mata in sin 4-siffriga kod.
 7. Vid fel kod kommer ett felmeddelande annars kommer ett välkomnade till kunden och en kunden får en meny att välja på.
-8. kunden ska sedan välja 1, 2, 3 eller 4. 
+8. kunden ska sedan välja 1, 2, 3 eller 4.
 9. väljer kunden 1 så måste kunden välja ett belopp att sätta in pengar.
    När kunden satt in pengar kommer ett meddelande upp.
    Väljer kunden 2 så ska ett belopp skrivas hur mycket pengar som ska tas ut.
-   Vid ett för stor belopp kommer ett felmeddelande upp. 
+   Vid ett för stor belopp kommer ett felmeddelande upp.
    Då får kunden göra ett nytt val.
    Väljer kunden 3 Visa belopp visas belopp som finns på kontot med decimaler (ören).
    Väljer kunden 4 så avslutas sessionen och ett hej då meddelande kommer upp.
 10. Gjorde en ändring så att menyn bara visas 1 ggn. Lärde mig att menyn då ska ligga utanför loopen.
 11. La även till färg på vissa texter. Som tex Rött vid fel och Grönt vid rätt.
 
-
-
-
-
-
-
-
-
+    2025-09-30:
+12. Med de senaste inlämningarna (bl.a dagboken o det här bankaccount) har jag börjat förstå det där med klassfiler. 
+    La till följande filer: BankAccount.cs, Person.cs och Customer.cs.
+    
+13. Jag har inkapslat koden till kontot med följande "private const string", då syns inte koden för någon annan. Även inkapslat kontots balans med "private decimal balance".
